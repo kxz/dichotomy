@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- Dichotomy, a custom Tumblr theme <http://blog.room208.org/dichotomy>
+     Public domain. Visible attribution linked to the above page would be nice.
+-->
+
+<title>
+{block:PostSummary}{PostSummary} &lt; {/block:PostSummary}
+{block:TagPage}#{Tag} &lt; {/block:TagPage}
+ninety eight point six percent
+</title>
+
+<meta name="description" content="{MetaDescription}">
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}">
+
+<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<style>@import url(https://room208.org/tumblr/blog.css);</style>
+</head>
+
+<body>
+<div id="wrapper">
+<h1 id="home"><a href="/">ninety eight point six percent</a></h1>
+
+<div id="posts">
+{block:PermalinkPage}<header><p>Viewing an individual post / <a href="/">All posts</a></p></header>{/block:PermalinkPage}
+{block:TagPage}<header><p>Only viewing posts tagged #{Tag} / <a href="/">All posts</a></p></header>{/block:TagPage}
+
+{block:Posts}
+<article>
+
+{block:Text}
+<div class="text">
+{block:Title}<h1>{Title}</h1>{/block:Title}
+{Body}
+</div>
+{/block:Text}
+                
+{block:Photo}
+<div class="photo">
+<p>{LinkOpenTag}<img src="{PhotoURL-500}" alt="">{LinkCloseTag}</p>
+{block:Caption}{Caption}{/block:Caption}        
+</div>
+{/block:Photo}
+
+{block:Photoset}
+<div class="photoset">
+{Photoset-500}
+{block:Caption}{Caption}{/block:Caption}                    
+</div>
+{/block:Photoset}
+                
+{block:Quote}
+<div class="quote">
+<blockquote>{Quote}</blockquote>
+{block:Source}{Source}{/block:Source}
+</div>
+{/block:Quote}
+                
+{block:Link}
+<div class="link">
+<h1><a href="{URL}" {Target}>{Name}</a></h1>
+{block:Description}{Description}{/block:Description}                    
+</div>
+{/block:Link}
+            
+{block:Chat}
+{block:Title}<h3>{Title}</h3>{/block:Title}
+<div class="chat">
+<ul>
+{block:Lines}
+<li>{block:Label}<b>{Label}</b> {/block:Label}{Line}</li>
+{/block:Lines}
+</ul>
+</div>
+{/block:Chat}
+                
+{block:Audio}
+<div class="audio">
+{block:AlbumArt}<p><img src="{AlbumArtURL}" class="albumart"></p>{/block:AlbumArt}
+<p>{AudioPlayerBlack}</p>
+{Caption}                   
+</div>
+{/block:Audio}
+                
+{block:Video}
+<div class="video">
+<p>{Video-500}</p>
+{Caption}
+</div>
+{/block:Video}
+                
+{block:Answer}
+<div class="answer">
+<h1>{Asker}: {Question}</h1>
+{Answer}                    
+</div>
+{/block:Answer}
+
+<footer>
+{block:Date}<div><a rel="bookmark" title="Permanent link" href="{Permalink}"><time pubdate datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" title="{Month} {DayOfMonth}, {Year}">{TimeAgo}</time></a>{block:ContentSource} from <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}{block:RebloggedFrom} via <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}{block:HasTags} /{block:Tags} #<a title="All posts tagged #{Tag}" href="{TagURL}">{Tag}</a>{/block:Tags}{/block:HasTags}{block:NoteCount} / <a href="{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</div>{/block:Date}
+</footer>
+
+{block:PostNotes}
+<section id="notes">
+<h1>Responses</h1>
+
+{PostNotes}
+</section>
+{/block:PostNotes}
+</article>
+{/block:Posts}
+</div>
+
+{block:Pagination}
+<nav>
+<h1>Pagination</h1>
+<ul id="pages">
+<li class="prev"><a{block:PreviousPage} href="{PreviousPage}"{/block:PreviousPage}>Prev</a></li>
+{block:JumpPagination length="7"}
+{block:CurrentPage}<li><a>{PageNumber}</a></li>{/block:CurrentPage}
+{block:JumpPage}<li><a href="{URL}">{PageNumber}</a></li>{/block:JumpPage}
+{/block:JumpPagination}
+<li class="next"><a{block:NextPage} href="{NextPage}"{/block:NextPage}>Next</a></li>
+</ul>
+</nav>
+{/block:Pagination}
+{block:PermalinkPagination}
+<nav>
+<h1>Pagination</h1>
+<ul id="pages">
+<li class="prev"><a{block:NextPost} href="{NextPost}"{/block:NextPost}>Newer</a></li>
+<li class="next"><a{block:PreviousPost} href="{PreviousPost}"{/block:PreviousPost}>Older</a></li>
+</ul>
+</nav>
+{/block:PermalinkPagination}
+
+<nav>
+<h1>Navigation</h1>
+<ul id="main">
+<li><a href="https://room208.org/">« Room 208</a></li>
+<li><a href="/archive">Archive</a></li>
+{block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
+{block:AskEnabled}<li><a href="/ask">Inquiries</a></li>{/block:AskEnabled}
+{block:HasPages}
+{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+{/block:HasPages}
+<li><a href="{RSS}">RSS</a></li>
+</ul>
+</nav>
+</div>
+</body>
+</html>
