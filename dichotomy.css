@@ -95,6 +95,11 @@ article h1 {
     margin: 1em 0;
 }
 
+article .link h1::after {
+    content: "\A0\BB";
+    font-weight: normal;
+}
+
 article ul, article ol {
     position: relative;
     margin: 1em 0;
