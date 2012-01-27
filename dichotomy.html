@@ -6,10 +6,13 @@
      Public domain. Visible attribution linked to the above page would be nice.
 -->
 
+<meta name="text:Backlink URL" content="">
+<meta name="text:Backlink Title" content="">
+
 <title>
 {block:PostSummary}{PostSummary} &lt; {/block:PostSummary}
 {block:TagPage}#{Tag} &lt; {/block:TagPage}
-ninety eight point six percent
+{Title}
 </title>
 
 <meta name="description" content="{MetaDescription}">
@@ -22,7 +25,7 @@ ninety eight point six percent
 
 <body>
 <div id="wrapper">
-<h1 id="home"><a href="/">ninety eight point six percent</a></h1>
+<h1 id="home"><a href="/">{Title}</a></h1>
 
 <div id="posts">
 {block:PermalinkPage}<header><p>Viewing an individual post / <a href="/">All posts</a></p></header>{/block:PermalinkPage}
@@ -140,13 +143,24 @@ ninety eight point six percent
 <nav>
 <h1>Navigation</h1>
 <ul id="main">
-<li><a href="https://room208.org/">« Room 208</a></li>
+{block:IfBacklinkURL}{block:IfBacklinkTitle}
+<li><a href="{text:Backlink URL}">« {text:Backlink Title}</a></li>
+{/block:IfBacklinkTitle}{/block:IfBacklinkURL}
+
 <li><a href="/archive">Archive</a></li>
-{block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
-{block:AskEnabled}<li><a href="/ask">Inquiries</a></li>{/block:AskEnabled}
+
+{block:SubmissionsEnabled}
+<li><a href="/submit">{SubmitLabel}</a></li>
+{/block:SubmissionsEnabled}
+
+{block:AskEnabled}
+<li><a href="/ask">Inquiries</a></li>
+{/block:AskEnabled}
+
 {block:HasPages}
 {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
 {/block:HasPages}
+
 <li><a href="http://blog.room208.org/dichotomy">Theme</a></li>
 <li><a href="{RSS}">RSS</a></li>
 </ul>
