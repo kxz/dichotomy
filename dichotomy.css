@@ -1,8 +1,11 @@
 /* Dichotomy, a custom Tumblr theme <http://blog.room208.org/dichotomy>
-   Public domain. Visible attribution linked to the above page would be nice.
+   Public domain.  Visible attribution linked to the above page would be nice.
+   
+   Uses the Ubuntu Mono font <http://font.ubuntu.com/>
+   Licensed under the Ubuntu Font Licence 1.0 and distributed by Google.
 */
 
-@import url(http://fonts.googleapis.com/css?family=Lekton:400italic,700,400&v2);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:700italic,400,700,400italic);
 
 html, body {
     background: black;
@@ -64,7 +67,7 @@ iframe, img {
 /* Main post container (left side) */
 
 #wrapper {
-    font: 14px/1.2 'Lekton', monospace;
+    font: 14px/1.2 'Ubuntu Mono', monospace;
     max-width: 500px;
     position: relative;
     margin: 0;
