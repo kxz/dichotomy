@@ -134,8 +134,12 @@ article ol > li::before {
     margin: 1em 0;
 }
 
-#notes blockquote a {
-    font-style: normal;
+#notes .clear {
+    display: none;
+}
+
+#notes blockquote {
+    display: inline;
 }
 
 #notes img /* profile images */ {
