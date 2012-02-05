@@ -12,6 +12,7 @@ html, body {
     color: white;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 /* General stuff */
@@ -71,9 +72,11 @@ iframe, img {
     max-width: 500px;
     position: relative;
     margin: 0;
-    padding: 1px 1em;
+    padding: 0 1em;
+    overflow: auto;
     background: white;
     color: black;
+    min-height: 100%;
 }
 
 #posts {
@@ -152,7 +155,7 @@ article ol > li::before {
     position: fixed;
     right: 1em;
     top: 1em;
-    margin: 1px 0 0;
+    margin: 0;
     font-size: 100%;
     color: white;
     font-weight: normal;
@@ -176,16 +179,15 @@ nav h1 {
 nav ul {
     position: fixed;
     right: 1em;
+    margin: 0;
 }
 
 nav #main {
     top: 2.2em;
-    margin: 1px 0 0;
 }
 
 nav #pages {
     bottom: 1em;
-    margin: 0 0 1px;
 }
 
 nav li {
