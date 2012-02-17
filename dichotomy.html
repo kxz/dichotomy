@@ -25,7 +25,7 @@
 <style>
 /* Dichotomy, a custom Tumblr theme <http://blog.room208.org/dichotomy>
    Public domain.  Visible attribution linked to the above page would be nice.
-   
+
    Uses the Ubuntu Mono font <http://font.ubuntu.com/>
    Licensed under the Ubuntu Font Licence 1.0 and distributed by Google.
 */
@@ -252,15 +252,15 @@ nav li {
     body {
         padding-top: 25px;
     }
-    
+
     #wrapper {
         margin: 4.2em 0 2.2em;
     }
-    
+
     #home, nav #main, #tumblr_controls {
         position: absolute !important;
     }
-    
+
     nav #pages {
         position: relative;
     }
@@ -313,31 +313,31 @@ nav li {
 {block:Photo}
 <div class="photo">
 <p>{LinkOpenTag}<img src="{PhotoURL-500}" alt="">{LinkCloseTag}</p>
-{block:Caption}{Caption}{/block:Caption}		
+{block:Caption}{Caption}{/block:Caption}
 </div>
 {/block:Photo}
 
 {block:Photoset}
 <div class="photoset">
 {Photoset-500}
-{block:Caption}{Caption}{/block:Caption}					
+{block:Caption}{Caption}{/block:Caption}
 </div>
 {/block:Photoset}
-				
+
 {block:Quote}
 <div class="quote">
 <blockquote>{Quote}</blockquote>
 {block:Source}{Source}{/block:Source}
 </div>
 {/block:Quote}
-				
+
 {block:Link}
 <div class="link">
 <h1><a href="{URL}" {Target}>{Name}</a></h1>
-{block:Description}{Description}{/block:Description}					
+{block:Description}{Description}{/block:Description}
 </div>
 {/block:Link}
-			
+
 {block:Chat}
 {block:Title}<h1>{Title}</h1>{/block:Title}
 <div class="chat">
@@ -348,26 +348,26 @@ nav li {
 </ul>
 </div>
 {/block:Chat}
-				
+
 {block:Audio}
 <div class="audio">
 {block:AlbumArt}<p><img src="{AlbumArtURL}" class="albumart"></p>{/block:AlbumArt}
 <p>{AudioPlayerBlack}</p>
-{Caption}					
+{Caption}
 </div>
 {/block:Audio}
-				
+
 {block:Video}
 <div class="video">
 <p>{Video-500}</p>
 {Caption}
 </div>
 {/block:Video}
-				
+
 {block:Answer}
 <div class="answer">
 <h1>{Asker}: {Question}</h1>
-{Answer}					
+{Answer}
 </div>
 {/block:Answer}
 
