@@ -169,6 +169,16 @@ article ol > li::before {
     counter-increment: list;
 }
 
+.image {
+    background: #ccc;
+    margin: 1em 0;
+}
+
+.image img {
+    display: block;
+    margin: 0 auto;
+}
+
 #notes {
     border-top: 1px dotted lightgray;
     margin: 1em 0;
@@ -326,7 +336,7 @@ nav li {
 
 {block:Photo}
 <div class="photo">
-<p>{LinkOpenTag}<img src="{PhotoURL-500}" alt="">{LinkCloseTag}</p>
+<div class="image">{LinkOpenTag}<img src="{PhotoURL-500}" alt="">{LinkCloseTag}</div>
 {block:Caption}{Caption}{/block:Caption}
 </div>
 {/block:Photo}
@@ -365,7 +375,7 @@ nav li {
 
 {block:Audio}
 <div class="audio">
-{block:AlbumArt}<p><img src="{AlbumArtURL}" class="albumart"></p>{/block:AlbumArt}
+{block:AlbumArt}<div class="image"><img src="{AlbumArtURL}" class="albumart"></div>{/block:AlbumArt}
 <p>{AudioPlayerBlack}</p>
 {Caption}
 </div>
@@ -373,7 +383,7 @@ nav li {
 
 {block:Video}
 <div class="video">
-<p>{Video-500}</p>
+<div class="image">{Video-500}</div>
 {Caption}
 </div>
 {/block:Video}
