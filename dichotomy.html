@@ -307,7 +307,12 @@ nav li {
 <div id="wrapper">
 <div id="posts">
 {block:PermalinkPage}<header><p>Viewing an individual post / <a href="/">All posts</a></p></header>{/block:PermalinkPage}
+{block:SearchPage}<header><p>Viewing search results for <b>{SearchQuery}</b> / <a href="/">All posts</a></p></header>{/block:SearchPage}
 {block:TagPage}<header><p>Only viewing posts tagged #{Tag} / <a href="/">All posts</a></p></header>{/block:TagPage}
+
+{block:NoSearchResults}
+<p>No posts were found matching the query <b>{SearchQuery}</b>.</p>
+{/block:NoSearchResults}
 
 {block:Posts}
 <article>
