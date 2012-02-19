@@ -138,7 +138,7 @@ article h1 {
     margin: 1em 0;
 }
 
-article .link h1::after {
+article.link h1::after {
     content: "\A0\BB";
     font-weight: normal;
 }
@@ -169,12 +169,12 @@ article ol > li::before {
     counter-increment: list;
 }
 
-.image {
+article .image {
     background: #ccc;
     margin: 1em 0;
 }
 
-.image img {
+article .image img {
     display: block;
     margin: 0 auto;
 }
@@ -325,74 +325,56 @@ nav li {
 {/block:NoSearchResults}
 
 {block:Posts}
-<article>
+<article class="{PlaintextPostType}">
 
 {block:Text}
-<div class="text">
 {block:Title}<h1>{Title}</h1>{/block:Title}
 {Body}
-</div>
 {/block:Text}
 
 {block:Photo}
-<div class="photo">
 <div class="image">{LinkOpenTag}<img src="{PhotoURL-500}" alt="">{LinkCloseTag}</div>
 {block:Caption}{Caption}{/block:Caption}
-</div>
 {/block:Photo}
 
 {block:Photoset}
-<div class="photoset">
 {Photoset-500}
 {block:Caption}{Caption}{/block:Caption}
-</div>
 {/block:Photoset}
 
 {block:Quote}
-<div class="quote">
 <blockquote>{Quote}</blockquote>
 {block:Source}{Source}{/block:Source}
-</div>
 {/block:Quote}
 
 {block:Link}
-<div class="link">
 <h1><a href="{URL}" {Target}>{Name}</a></h1>
 {block:Description}{Description}{/block:Description}
-</div>
 {/block:Link}
 
 {block:Chat}
 {block:Title}<h1>{Title}</h1>{/block:Title}
-<div class="chat">
 <ul>
 {block:Lines}
 <li>{block:Label}<b>{Label}</b> {/block:Label}{Line}</li>
 {/block:Lines}
 </ul>
-</div>
 {/block:Chat}
 
 {block:Audio}
-<div class="audio">
 {block:AlbumArt}<div class="image"><img src="{AlbumArtURL}" class="albumart"></div>{/block:AlbumArt}
 <p>{AudioPlayerBlack}</p>
 {Caption}
-</div>
 {/block:Audio}
 
 {block:Video}
-<div class="video">
 <div class="image">{Video-500}</div>
 {Caption}
-</div>
 {/block:Video}
 
 {block:Answer}
-<div class="answer">
 <h1>{Asker}: {Question}</h1>
 {Answer}
-</div>
 {/block:Answer}
 
 <footer>
