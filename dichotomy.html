@@ -6,8 +6,20 @@
 {block:IfDummy}
 <meta name="text:Backlink URL" content="">
 <meta name="text:Backlink Title" content="">
+
 <meta name="text:Google Analytics ID" content="">
+
 <meta name="if:Automatic Syntax Highlighting" content="0">
+
+<meta name="color:Content Foreground" content="#000000">
+<meta name="color:Content Incidentals" content="#a8a8a8">
+<meta name="color:Content Borders" content="#d3d3d3">
+<meta name="color:Content Midground" content="#cccccc">
+<meta name="color:Content Background" content="#ffffff">
+
+<meta name="color:Sidebar Foreground" content="#ffffff">
+<meta name="color:Sidebar Incidentals" content="#a8a8a8">
+<meta name="color:Sidebar Background" content="#000000">
 {/block:IfDummy}
 
 <title>
@@ -37,8 +49,8 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic&subset=latin,greek,cyrillic);
 
 html, body {
-    background: black;
-    color: white;
+    background: {color:Sidebar Background};
+    color: {color:Sidebar Foreground};
     margin: 0;
     padding: 0;
     height: 100%;
@@ -74,7 +86,7 @@ blockquote cite, blockquote em {
 }
 
 code, pre {
-    background: #ccc;
+    background: {color:Content Midground};
     font: inherit;
 }
 
@@ -83,7 +95,7 @@ pre {
 }
 
 header, footer {
-    color: darkgray;
+    color: {color:Content Incidentals};
     margin: 1em 0;
 }
 
@@ -115,8 +127,8 @@ iframe, img {
     margin: 0;
     padding: 0 1em;
     overflow: auto;
-    background: white;
-    color: black;
+    background: {color:Content Background};
+    color: {color:Content Foreground};
     min-height: 100%;
 }
 
@@ -125,12 +137,12 @@ iframe, img {
 }
 
 #posts > header {
-    border-bottom: 3px double lightgray;
+    border-bottom: 3px double {color:Content Borders};
 }
 
 article {
     margin: 0 0 1em;
-    border-bottom: 1px dotted lightgray;
+    border-bottom: 1px dotted {color:Content Borders};
 }
 
 article:last-child {
@@ -185,7 +197,7 @@ article ol > li::before {
 }
 
 article .image {
-    background: #ccc;
+    background: {color:Content Midground};
     margin: 1em 0;
 }
 
@@ -195,7 +207,7 @@ article .image img {
 }
 
 #notes {
-    border-top: 1px dotted lightgray;
+    border-top: 1px dotted {color:Content Borders};
     margin: 1em 0;
 }
 
@@ -219,7 +231,7 @@ article .image img {
     top: 1em;
     margin: 0;
     font-size: 100%;
-    color: white;
+    color: {color:Sidebar Foreground};
     font-weight: normal;
 }
 
@@ -230,7 +242,7 @@ article .image img {
 nav {
     text-transform: uppercase;
     text-align: right;
-    color: darkgray;
+    color: {color:Sidebar Incidentals};
     cursor: default;
 }
 
@@ -261,8 +273,7 @@ nav li {
 
 #home a:link, #home a:visited, nav a:link, nav a:visited {
     text-decoration: none;
-    background: black;
-    color: white;
+    color: {color:Sidebar Foreground};
 }
 
 #main li::before, .prev::after, .next::before {
