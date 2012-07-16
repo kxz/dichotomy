@@ -4,17 +4,21 @@
 <meta charset="utf-8">
 
 {block:IfDummy}
+<meta name="text:Subtitle" content="">
+<meta name="text:Copyright Author" content="">
+
 <meta name="text:Backlink URL" content="">
 <meta name="text:Backlink Title" content="">
 
 <meta name="text:Google Analytics ID" content="">
 
 <meta name="if:Automatic Syntax Highlighting" content="0">
+<meta name="if:Twitter Widget" content="0">
 
 <meta name="color:Content Foreground" content="#000000">
 <meta name="color:Content Incidentals" content="#a8a8a8">
 <meta name="color:Content Borders" content="#d3d3d3">
-<meta name="color:Content Midground" content="#cccccc">
+<meta name="text:Content Midground" content="rgba(128, 128, 128, 0.2)">
 <meta name="color:Content Background" content="#ffffff">
 
 <meta name="color:Sidebar Foreground" content="#ffffff">
@@ -25,7 +29,7 @@
 <title>
 {block:PostSummary}{PostSummary} &lt; {/block:PostSummary}
 {block:TagPage}#{Tag} &lt; {/block:TagPage}
-{Title}
+{Title}{block:IndexPage}{block:IfSubtitle}, {text:Subtitle}{/block:IfSubtitle}{/block:IndexPage}
 </title>
 
 <meta name="description" content="{MetaDescription}">
@@ -37,6 +41,12 @@
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+{block:IfAutomaticSyntaxHighlighting}
+<link rel="stylesheet" href="http://yandex.st/highlightjs/6.1/styles/default.min.css">
+<script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+{/block:IfAutomaticSyntaxHighlighting}
 
 <style>
 /* Dichotomy, a custom Tumblr theme <http://blog.room208.org/dichotomy>
@@ -76,27 +86,36 @@ a:visited:hover, a:visited:active, a:visited:focus {
     font-weight: bold;
 }
 
-blockquote {
-    font-style: italic;
-    margin: 1em 0;
+blockquote, pre {
+    position: relative;
+    font: inherit;
+    margin: 1em -1em;
+    padding: 0 1em;
+    background: {text:Content Midground};
+    box-shadow: {text:Content Midground} 0 0 0 0.5em;
+    overflow: auto;
 }
 
-blockquote cite, blockquote em {
-    font-style: normal;
+blockquote > :first-child, pre > :first-child {
+    margin-top: 0;
 }
 
-code, pre {
-    background: {color:Content Midground};
+blockquote > :last-child, pre > :last-child {
+    margin-bottom: 0;
+}
+
+code {
+    background: {text:Content Midground};
     font: inherit;
 }
 
-pre {
-    overflow: auto;
+pre code {
+    background: none;
+    padding: 0;
 }
 
 header, footer {
     color: {color:Content Incidentals};
-    margin: 1em 0;
 }
 
 time[title] {
@@ -104,15 +123,10 @@ time[title] {
 }
 
 hr {
-    height: 1.2em;
+    height: 0;
     border: 0;
+    border-top: 1px dotted {color:Content Borders};
     margin: 1em 0;
-}
-
-hr::after {
-    display: block;
-    content: "* * *";
-    text-align: center;
 }
 
 iframe, img {
@@ -122,27 +136,27 @@ iframe, img {
 /* Main post container (left side) */
 
 #wrapper {
-    max-width: 500px;
-    position: relative;
-    margin: 0;
-    padding: 0 1em;
-    overflow: auto;
+    display: inline-block;
+    overflow: hidden;
     background: {color:Content Background};
     color: {color:Content Foreground};
     min-height: 100%;
 }
 
-#posts {
-    margin: 1em 0;
+#posts > header, article {
+    max-width: 500px;
+    padding: 0 1em;
+    overflow: auto;
 }
 
 #posts > header {
-    border-bottom: 3px double {color:Content Borders};
+    background: {color:Sidebar Background};
+    color: {color:Sidebar Foreground};
 }
 
 article {
-    margin: 0 0 1em;
-    border-bottom: 1px dotted {color:Content Borders};
+    border-bottom: 1em solid {color:Sidebar Background};
+    overflow: auto;
 }
 
 article:last-child {
@@ -154,7 +168,20 @@ article h1 {
     margin: 1em 0;
 }
 
-article.link > h1:first-child::after {
+article > h1:first-child {
+    margin: 0 -1em 1em;
+    padding: 1em;
+    border-bottom: 1px solid {color:Sidebar Background};
+}
+
+article > h1:first-child a {
+    display: block;
+    margin: -1em;
+    padding: 1em;
+    text-decoration: none;
+}
+
+article.link > h1:first-child a::after {
     content: "\A0\BB";
     font-weight: normal;
 }
@@ -197,7 +224,7 @@ article ol > li::before {
 }
 
 article .image {
-    background: {color:Content Midground};
+    background: {text:Content Midground};
     margin: 1em 0;
 }
 
@@ -217,6 +244,9 @@ article .image img {
 
 #notes blockquote {
     display: inline;
+    background: none;
+    box-shadow: none;
+    font-style: italic;
 }
 
 #notes img /* profile images */ {
@@ -231,8 +261,13 @@ article .image img {
     top: 1em;
     margin: 0;
     font-size: 100%;
-    color: {color:Sidebar Foreground};
+    color: {color:Sidebar Incidentals};
     font-weight: normal;
+}
+
+#home h1 {
+    display: inline;
+    font-size: 100%;
 }
 
 #home a:link, #home a:visited {
@@ -302,6 +337,10 @@ nav li {
         margin: 4.2em 0 2.2em;
     }
 
+    #posts > header {
+        border-top: 1px dotted {color:Sidebar Foreground};
+    }
+
     #home, nav #main, #tumblr_controls {
         position: absolute !important;
     }
@@ -316,12 +355,6 @@ nav li {
 {CustomCSS}
 </style>
 
-{block:IfAutomaticSyntaxHighlighting}
-<link rel="stylesheet" href="http://yandex.st/highlightjs/6.1/styles/default.min.css">
-<script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-{/block:IfAutomaticSyntaxHighlighting}
-
 {block:IfGoogleAnalyticsID}
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -335,10 +368,17 @@ nav li {
   })();
 </script>
 {/block:IfGoogleAnalyticsID}
+
+{block:IfTwitterWidget}
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+{/block:IfTwitterWidget}
 </head>
 
 <body>
-<h1 id="home"><a href="/">{Title}</a></h1>
+<div id="home">
+<h1><a href="/">{Title}</a></h1>{block:IfSubtitle}, {text:Subtitle}{/block:IfSubtitle}
+{block:IfCopyrightAuthor}©{CopyrightYears} {text:Copyright Author}{/block:IfCopyrightAuthor}
+</div>
 
 <div id="wrapper">
 <div id="posts">
@@ -354,7 +394,7 @@ nav li {
 <article class="{PlaintextPostType}">
 
 {block:Text}
-{block:Title}<h1>{Title}</h1>{/block:Title}
+{block:Title}<h1><a rel="bookmark" title="Permanent link" href="{Permalink}">{Title}</a></h1>{/block:Title}
 {Body}
 {/block:Text}
 
@@ -405,7 +445,7 @@ nav li {
 {/block:Answer}
 
 <footer>
-{block:Date}<div><a rel="bookmark" title="Permanent link" href="{Permalink}"><time pubdate datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" title="{Month} {DayOfMonth}, {Year}">{TimeAgo}</time></a>{block:ContentSource} from <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}{block:RebloggedFrom} via <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}{block:HasTags} /{block:Tags} #<a title="All posts tagged #{Tag}" href="{TagURL}">{Tag}</a>{/block:Tags}{/block:HasTags}{block:NoteCount} / <a href="{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</div>{/block:Date}
+{block:Date}<p><a rel="bookmark" title="Permanent link" href="{Permalink}"><time pubdate datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" title="{Month} {DayOfMonth}, {Year}">{TimeAgo}</time></a>{block:ContentSource} from <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}{block:RebloggedFrom} via <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}{block:HasTags} /{block:Tags} #<a title="All posts tagged #{Tag}" href="{TagURL}">{Tag}</a>{/block:Tags}{/block:HasTags}{block:NoteCount} / <a href="{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</p>{/block:Date}
 </footer>
 
 {block:PostNotes}
