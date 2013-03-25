@@ -9,6 +9,7 @@
 
 <meta name="text:Backlink URL" content="">
 <meta name="text:Backlink Title" content="">
+<meta name="if:Show Archive Link" content="1">
 
 <meta name="text:Google Analytics ID" content="">
 
@@ -492,7 +493,9 @@ nav li {
 <li><a href="{text:Backlink URL}">« {text:Backlink Title}</a></li>
 {/block:IfBacklinkTitle}{/block:IfBacklinkURL}
 
+{block:IfShowArchiveLink}
 <li><a href="/archive">Archive</a></li>
+{/block:IfShowArchiveLink}
 
 {block:SubmissionsEnabled}
 <li><a href="/submit">{SubmitLabel}</a></li>
