@@ -21,8 +21,8 @@ Whack "Save", then close and reopen the Customize page in order to reload the th
 
 ## Custom colors
 
-You can change the theme's colors by using Tumblr's color selectors, for the most part.
-The sole exception is the "Content Midground" setting, which is a text field due to Tumblr's lack of support for `rgba()` colors, but otherwise functions as a normal CSS color.
+You can change the theme's colors by using Tumblr's color selectors.
+The "Midground Opacity" text field can be used to change the background opacity for block quotes and the like.
 
 ## Subtitle and copyright author
 

@@ -18,12 +18,14 @@
 <meta name="color:Content Foreground" content="#000000">
 <meta name="color:Content Incidentals" content="#a8a8a8">
 <meta name="color:Content Borders" content="#d3d3d3">
-<meta name="text:Content Midground" content="rgba(128, 128, 128, 0.2)">
+<meta name="color:Content Midground" content="#808080">
 <meta name="color:Content Background" content="#ffffff">
 
 <meta name="color:Sidebar Foreground" content="#ffffff">
 <meta name="color:Sidebar Incidentals" content="#a8a8a8">
 <meta name="color:Sidebar Background" content="#000000">
+
+<meta name="text:Midground Opacity" content="0.2">
 {/block:IfDummy}
 
 <title>
@@ -91,8 +93,8 @@ blockquote, pre {
     font: inherit;
     margin: 1em -1em;
     padding: 0 1em;
-    background: {text:Content Midground};
-    box-shadow: {text:Content Midground} 0 0 0 0.5em;
+    background: rgba({RGBcolor:Content Midground},{text:Midground Opacity});
+    box-shadow: rgba({RGBcolor:Content Midground},{text:Midground Opacity}) 0 0 0 0.5em;
     overflow: auto;
 }
 
@@ -105,7 +107,7 @@ blockquote > :last-child, pre > :last-child {
 }
 
 code {
-    background: {text:Content Midground};
+    background: rgba({RGBcolor:Content Midground},{text:Midground Opacity});
     font: inherit;
 }
 
@@ -224,7 +226,7 @@ article ol > li::before {
 }
 
 article .image {
-    background: {text:Content Midground};
+    background: rgba({RGBcolor:Content Midground},{text:Midground Opacity});
     margin: 1em 0;
 }
 
