@@ -1,4 +1,4 @@
-**Dichotomy** is the [Room 208 Blog](http://blog.room208.org/)'s custom Tumblr theme.
+**Dichotomy** is [Elaborate Burn](http://blog.room208.org/)'s custom Tumblr theme.
 Although minimalistic in appearance, it has support for a wide array of special features:
 
 * HTML5 sectioning and semantic elements, like `<article>` and `<time>`
