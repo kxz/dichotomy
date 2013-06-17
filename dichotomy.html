@@ -212,7 +212,7 @@ article h2 {
     margin: 1em 0;
 }
 
-.article_body ul, .article_body ol {
+.article_body ul, .article_body ol, #notes ol {
     position: relative;
     margin: 1em 0;
     padding: 0 0 0 4ex;
@@ -224,7 +224,7 @@ article h2 {
     margin: 0;
 }
 
-.article_body li {
+.article_body li, #notes li {
     list-style: none;
 }
 
@@ -234,7 +234,7 @@ article h2 {
     left: 2ex;
 }
 
-.article_body ol > li::before {
+.article_body ol > li::before, #notes ol > li::before {
     content: counter(list) ".";
     position: absolute;
     left: 0;
