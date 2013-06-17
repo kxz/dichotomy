@@ -518,7 +518,7 @@ nav li {
 {block:Date}
 <ul class="inline_nav">
 <li>
-<a rel="bookmark" title="Permanent link" href="{Permalink}"><time pubdate datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" title="{Month} {DayOfMonth}, {Year}">{TimeAgo}</time></a>
+<a rel="bookmark" title="Permanent link" href="{Permalink}"><time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" title="{Month} {DayOfMonth}, {Year}">{TimeAgo}</time></a>
 {block:ContentSource}from <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}
 {block:RebloggedFrom}via <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}
 </li>
