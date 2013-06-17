@@ -157,6 +157,22 @@ iframe, img {
     color: {color:Sidebar Foreground};
 }
 
+.inline_nav {
+    margin: 1em 0;
+    padding: 0;
+}
+
+.inline_nav li {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.inline_nav li + li::before {
+    content: " / ";
+}
+
 article {
     border-bottom: 1em solid {color:Sidebar Background};
     overflow: auto;
@@ -196,28 +212,29 @@ article h2 {
     margin: 1em 0;
 }
 
-article ul, article ol {
+.article_body ul, .article_body ol {
     position: relative;
     margin: 1em 0;
     padding: 0 0 0 4ex;
     counter-reset: list;
 }
 
-article ul ul, article ul ol, article ol ul, article ol ol {
+.article_body ul ul, .article_body ul ol,
+.article_body ol ul, .article_body ol ol {
     margin: 0;
 }
 
-article li {
+.article_body li {
     list-style: none;
 }
 
-article ul > li::before {
+.article_body ul > li::before {
     content: "-\A0";
     position: absolute;
     left: 2ex;
 }
 
-article ol > li::before {
+.article_body ol > li::before {
     content: counter(list) ".";
     position: absolute;
     left: 0;
@@ -226,30 +243,30 @@ article ol > li::before {
     counter-increment: list;
 }
 
-article .image, article .html_photoset {
+.image, .html_photoset {
     background: rgba({RGBcolor:Content Midground},{text:Midground Opacity});
     margin: 1em 0;
 }
 
-article .image img, article .image iframe, article .html_photoset iframe {
+.image img, .image iframe, .html_photoset iframe {
     display: block;
     margin: 0 auto;
 }
 
-article.chat blockquote ol {
+.chat blockquote ol {
     margin: 0;
     padding: 0;
 }
 
-article.chat blockquote li {
+.chat blockquote li {
     display: table;
 }
 
-article.chat blockquote li::before {
+.chat blockquote li::before {
     content: "";
 }
 
-article.chat blockquote li b {
+.chat blockquote li b {
     display: table-cell;
     padding-right: 1ex;
 }
@@ -401,9 +418,32 @@ nav li {
 
 <div id="wrapper">
 <div id="posts">
-{block:PermalinkPage}<header><p>Viewing an individual post / <a href="/">All posts</a></p></header>{/block:PermalinkPage}
-{block:SearchPage}<header><p>Viewing search results for <b>{SearchQuery}</b> / <a href="/">All posts</a></p></header>{/block:SearchPage}
-{block:TagPage}<header><p>Only viewing posts tagged #{Tag} / <a href="/">All posts</a></p></header>{/block:TagPage}
+{block:PermalinkPage}
+<header>
+<ul class="inline_nav">
+<li>Viewing an individual post</li>
+<li><a href="/">All posts</a></li>
+</ul>
+</header>
+{/block:PermalinkPage}
+
+{block:SearchPage}
+<header>
+<ul class="inline_nav">
+<li>Viewing search results for <b>{SearchQuery}</b></li>
+<li><a href="/">All posts</a></li>
+</ul>
+</header>
+{/block:SearchPage}
+
+{block:TagPage}
+<header>
+<ul class="inline_nav">
+<li>Only viewing posts tagged #{Tag}</li>
+<li><a href="/">All posts</a></li>
+</ul>
+</header>
+{/block:TagPage}
 
 {block:NoSearchResults}
 <p>No posts were found matching the query <b>{SearchQuery}</b>.</p>
@@ -411,7 +451,7 @@ nav li {
 
 {block:Posts}
 <article class="{PlaintextPostType}">
-
+<div class="article_body">
 {block:Text}
 {block:Title}<h1><a rel="bookmark" title="Permanent link" href="{Permalink}">{Title}</a></h1>{/block:Title}
 {Body}
@@ -464,9 +504,30 @@ nav li {
 <blockquote><p>{Question}</p></blockquote>
 {Answer}
 {/block:Answer}
+</div>
 
 <footer>
-{block:Date}<p><a rel="bookmark" title="Permanent link" href="{Permalink}"><time pubdate datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" title="{Month} {DayOfMonth}, {Year}">{TimeAgo}</time></a>{block:ContentSource} from <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}{block:RebloggedFrom} via <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}{block:HasTags} /{block:Tags} #<a title="All posts tagged #{Tag}" href="{TagURL}">{Tag}</a>{/block:Tags}{/block:HasTags}{block:NoteCount} / <a href="{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}</p>{/block:Date}
+{block:Date}
+<ul class="inline_nav">
+<li>
+<a rel="bookmark" title="Permanent link" href="{Permalink}"><time pubdate datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}Z" title="{Month} {DayOfMonth}, {Year}">{TimeAgo}</time></a>
+{block:ContentSource}from <a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}
+{block:RebloggedFrom}via <a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}
+</li>
+{block:HasTags}
+<li>
+{block:Tags}
+#<a title="All posts tagged #{Tag}" href="{TagURL}">{Tag}</a>
+{/block:Tags}
+</li>
+{/block:HasTags}
+{block:NoteCount}
+<li>
+<a href="{Permalink}#notes">{NoteCountWithLabel}</a>
+</li>
+{/block:NoteCount}
+</ul>
+{/block:Date}
 </footer>
 
 {block:PostNotes}
