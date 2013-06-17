@@ -303,9 +303,17 @@ article h2 {
     font-weight: normal;
 }
 
-#home h1 {
+#home hgroup, #home h1, #home h2 {
     display: inline;
     font-size: 100%;
+}
+
+#home h2 {
+    font-weight: normal;
+}
+
+#home h2::before {
+    content: ", ";
 }
 
 #home a:link, #home a:visited {
@@ -412,7 +420,7 @@ nav li {
 
 <body>
 <div id="home">
-<h1><a href="/">{Title}</a></h1>{block:IfSubtitle}, {text:Subtitle}{/block:IfSubtitle}
+<hgroup><h1><a href="/">{Title}</a></h1>{block:IfSubtitle}<h2>{text:Subtitle}</h2>{/block:IfSubtitle}</hgroup>
 {block:IfCopyrightAuthor}©{CopyrightYears} {text:Copyright Author}{/block:IfCopyrightAuthor}
 </div>
 
