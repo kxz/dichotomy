@@ -36,7 +36,7 @@
 </title>
 
 <meta name="description" content="{MetaDescription}">
-<meta name="viewport" content="width=528">
+<meta name="viewport" content="width=536">
 
 <link rel="shortcut icon" href="{Favicon}">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}">
@@ -366,30 +366,35 @@ nav li {
     content: "";
 }
 
-#tumblr_controls, #tumblr_controls.tumblr_sticky_iframe[src] {
+/* Matching on src ensures we don't affect mobile controls. */
+#tumblr_controls[src*="o.html"],
+#tumblr_controls.tumblr_sticky_iframe[src*="o.html"] {
     position: fixed !important;
     right: 0.45em !important;
     top: 3.5em !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    -webkit-transition: none !important;
+    transition: none !important;
 }
 
 /** For narrower viewports **/
 
 @media screen and (max-width: 900px) {
     body {
-        padding-top: 25px;
         font-size: 18px;
     }
 
     #wrapper {
-        margin: 4.2em 0 2.2em;
+        margin: 4.4em 0 2.2em;
     }
 
     #posts > header {
         border-top: 1px dotted {color:Sidebar Foreground};
     }
 
-    #home, nav #main, #tumblr_controls,
-    #tumblr_controls.tumblr_sticky_iframe[src] {
+    #home, nav #main {
         position: absolute !important;
     }
 
