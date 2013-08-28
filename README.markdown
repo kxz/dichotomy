@@ -45,3 +45,9 @@ Dichotomy will include the required JavaScript for you.
 
 Dichotomy can use [highlight.js](http://softwaremaniacs.org/soft/highlight/en/) to automatically color code snippets inside `<pre><code>...</code></pre>` tags.
 (This is the default wrapping for Markdown indented code blocks.)
+
+### Swaying Tumblr controls
+
+Check this box in order to make the Tumblr UI buttons in the upper-right corner bounce up and down in a mildly drunken fashion.
+This isn't intended for serious use, obviously;
+I added this functionality one afternoon in frustration at how intrusive Tumblr's branding had become.
