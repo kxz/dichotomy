@@ -26,8 +26,6 @@
 <meta name="color:Sidebar Background" content="#000000">
 
 <meta name="text:Midground Opacity" content="0.2">
-
-<meta name="if:Swaying Controls" content="0">
 {/block:IfDummy}
 
 <title>
@@ -373,131 +371,7 @@ nav li {
     position: fixed !important;
     right: 0.45em !important;
     top: 3.5em !important;
-    {block:IfSwayingControls}
-    -moz-animation: sway 4s ease-in-out 0s infinite;
-    -o-animation: sway 4s ease-in-out 0s infinite;
-    -webkit-animation: sway 4s ease-in-out 0s infinite;
-    animation: sway 4s ease-in-out 0s infinite;
-    {/block:IfSwayingControls}
 }
-
-{block:IfSwayingControls}
-@-moz-keyframes sway {
-    0% {
-        top: 6.5em;
-        -moz-transform: rotate(-3.5deg);
-    }
-
-    25% {
-        top: 18.5em;
-        right: 0.8em;
-        -moz-transform: rotate(2.2deg);
-    }
-
-    50% {
-        top: 5.5em;
-        right: 0.2em;
-        -moz-transform: rotate(-0.3deg);
-    }
-
-    75% {
-        top: 19.5em;
-        -moz-transform: rotate(3.3deg);
-    }
-
-    100% {
-        top: 6.5em;
-        -moz-transform: rotate(-3.5deg);
-    }
-}
-
-@-o-keyframes sway {
-    0% {
-        top: 6.5em;
-        -o-transform: rotate(-3.5deg);
-    }
-
-    25% {
-        top: 18.5em;
-        right: 0.8em;
-        -o-transform: rotate(2.2deg);
-    }
-
-    50% {
-        top: 5.5em;
-        right: 0.2em;
-        -o-transform: rotate(-0.3deg);
-    }
-
-    75% {
-        top: 19.5em;
-        -o-transform: rotate(3.3deg);
-    }
-
-    100% {
-        top: 6.5em;
-        -o-transform: rotate(-3.5deg);
-    }
-}
-
-@-webkit-keyframes sway {
-    0% {
-        top: 6.5em;
-        -webkit-transform: rotate(-3.5deg);
-    }
-
-    25% {
-        top: 18.5em;
-        right: 0.8em;
-        -webkit-transform: rotate(2.2deg);
-    }
-
-    50% {
-        top: 5.5em;
-        right: 0.2em;
-        -webkit-transform: rotate(-0.3deg);
-    }
-
-    75% {
-        top: 19.5em;
-        -webkit-transform: rotate(3.3deg);
-    }
-
-    100% {
-        top: 6.5em;
-        -webkit-transform: rotate(-3.5deg);
-    }
-}
-
-@keyframes sway {
-    0% {
-        top: 6.5em;
-        transform: rotate(-3.5deg);
-    }
-
-    25% {
-        top: 18.5em;
-        right: 0.8em;
-        transform: rotate(2.2deg);
-    }
-
-    50% {
-        top: 5.5em;
-        right: 0.2em;
-        transform: rotate(-0.3deg);
-    }
-
-    75% {
-        top: 19.5em;
-        transform: rotate(3.3deg);
-    }
-
-    100% {
-        top: 6.5em;
-        transform: rotate(-3.5deg);
-    }
-}
-{/block:IfSwayingControls}
 
 #tumblr_teaser_follow {
     display: none !important;
