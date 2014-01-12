@@ -383,6 +383,8 @@ nav li {
     content: "";
 }
 
+/** Hacks for Tumblr's promos **/
+
 /* Matching on src ensures we don't affect mobile controls. */
 #tumblr_controls[src*="o.html"],
 #tumblr_controls.tumblr_sticky_iframe[src*="o.html"] {
@@ -400,6 +402,19 @@ nav li {
     {block:IfNotFollowTeaser}
     display: none !important;
     {/block:IfNotFollowTeaser}
+}
+
+/* Disable the teaser that slides the entire page over.  It covers up
+ * the navigation, and there's no way to detect when the teaser's being
+ * shown so that the navigation's positioning can be adjusted.  TL;DR:
+ * It's us or them, and of course I pick us. */
+
+html {
+    right: 0 !important;
+}
+
+#teaser_iframe_container {
+    display: none !important;
 }
 
 /** For narrower viewports **/
