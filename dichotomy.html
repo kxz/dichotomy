@@ -10,6 +10,7 @@
 <meta name="text:Backlink URL" content="">
 <meta name="text:Backlink Title" content="">
 <meta name="if:Show Archive Link" content="1">
+<meta name="if:Show Follow Teaser" content="1">
 
 <meta name="text:Google Analytics ID" content="">
 
@@ -391,7 +392,14 @@ nav li {
 }
 
 #tumblr_teaser_follow {
+    {block:IfShowFollowTeaser}
+    bottom: 3.2em !important;
+    right: 1em !important;
+    margin: 0 -5px -5px 0;
+    {/block:IfShowFollowTeaser}
+    {block:IfNotShowFollowTeaser}
     display: none !important;
+    {/block:IfNotShowFollowTeaser}
 }
 
 /** For narrower viewports **/
