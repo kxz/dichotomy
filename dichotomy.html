@@ -352,6 +352,7 @@ nav ul {
     position: fixed;
     right: 1em;
     margin: 0;
+    padding: 0;
 }
 
 nav #main {
@@ -422,6 +423,7 @@ html {
 @media screen and (max-width: 900px) {
     body {
         font-size: 18px;
+        text-align: center;
     }
 
     #wrapper {
@@ -432,12 +434,22 @@ html {
         border-top: 1px dotted {color:Sidebar Foreground};
     }
 
+    article {
+        text-align: left;
+    }
+
+    nav {
+        text-align: center;
+    }
+
     #home, nav #main {
         position: absolute !important;
+        left: 1em;
     }
 
     nav #pages {
         position: relative;
+        right: auto;
     }
 }
 
