@@ -26,6 +26,15 @@ Whack "Save", then close and reopen the Customize page in order to reload the th
 You can change the theme's colors by using Tumblr's color selectors.
 The *Midground Opacity* text field can be used to change the background opacity for block quotes and the like.
 
+### Mobile and left-handed layouts
+
+In order to use the mobile styles, you must first disable Tumblr's default by going to *Advanced options* and unchecking *Use optimized mobile layout*.
+If you'd like, you can force all devices to use the mobile styles by turning on the theme's *Mobile Styles Everywhere* option.
+
+Should you prefer having navigation on the left side and posts on the right, check the *Left Handed Layout* option, which flips the default layout.
+Note that Tumblr's teasers were not designed to be displayed on the left, and might look misaligned.
+You can always uncheck the *Promote Tumblr* option under *Advanced options* if this bothers you.
+
 ### Subtitle and copyright author
 
 Any text entered in the *Subtitle* field will appear in the title bar on the index page, and next to your blog's name in the page header.
