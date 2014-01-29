@@ -16,7 +16,6 @@
 
 
 <meta name="if:Archive Link" content="1">
-<meta name="if:Follow Teaser" content="1">
 
 <meta name="if:Left Handed Layout" content="0">
 <meta name="if:Mobile Styles Everywhere" content="0">
@@ -474,7 +473,6 @@ nav li {
 {/block:IfNotMobileStylesEverywhere}
 
 #tumblr_teaser_follow {
-    {block:IfFollowTeaser}
     bottom: 3.2em !important;
     {block:IfLeftHandedLayout}
     left: 1em !important;
@@ -483,10 +481,6 @@ nav li {
     right: 1em !important;
     {/block:IfNotLeftHandedLayout}
     margin: 0 -5px -5px;
-    {/block:IfFollowTeaser}
-    {block:IfNotFollowTeaser}
-    display: none !important;
-    {/block:IfNotFollowTeaser}
 }
 
 /* Disable the teaser that slides the entire page over.  It covers up
