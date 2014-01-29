@@ -1,5 +1,7 @@
 # Dichotomy
 
+![](screenshots/default.png)
+
 **Dichotomy** is a minimalistic theme built around high-contrast boxes
 and the reassuring, regular grid of monospaced fonts.
 It comes with built-in mobile styles, support for HTML5 sectioning and
