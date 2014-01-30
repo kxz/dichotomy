@@ -25,9 +25,9 @@ Note that all code contributions must be released under CC0.
 
 ## Installation
 
-Simply copy and paste the code in `dichotomy.html` into the HTML editor.
-Whack *Save*, then head back to the main customization screen and change
-the available options to your liking.
+Log in to Tumblr, then visit [Dichotomy's Theme Garden
+page](http://www.tumblr.com/theme/38335) and click on the *Install*
+button.
 
 
 ## Appearance options
