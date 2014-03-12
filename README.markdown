@@ -71,7 +71,10 @@ The backlink will appear as the first of your navigation links.
 ### Google Analytics
 
 If you have a Google Analytics account, just enter your tracking ID into
-the provided field.
+the provided field, and set the *GA Universal Tracking* option according
+to your analytics configuration.
+(For most new Google Analytics users, Universal Tracking should be
+enabled.)
 Dichotomy will include the required JavaScript for you.
 
 ### Automatic syntax highlighting
