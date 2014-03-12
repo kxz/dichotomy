@@ -421,6 +421,8 @@ nav li {
     body {
         font-size: 18px;
         text-align: center;
+        /* Leave space for Tumblr's mobile controls. */
+        margin-top: 26px;
     }
 
     #wrapper {
@@ -441,6 +443,8 @@ nav li {
         position: absolute !important;
         left: 1em;
         right: 1em;
+        /* Leave space for Tumblr's mobile controls. */
+        margin-top: 26px;
     }
 
     nav #pages {
@@ -454,21 +458,30 @@ nav li {
 
 /** Hacks for Tumblr's promos **/
 
-/* Matching on src ensures we don't affect mobile controls. */
 {block:IfNotMobileStylesEverywhere}
-@media screen and (min-width: 900px) {
-    #tumblr_controls[src*="o.html"],
-    #tumblr_controls.tumblr_sticky_iframe[src*="o.html"] {
-        position: fixed !important;
-        {block:IfLeftHandedLayout}
-        left: 0.45em !important;
-        right: auto !important;
-        {/block:IfLeftHandedLayout}
-        {block:IfNotLeftHandedLayout}
-        right: 0.45em !important;
-        {/block:IfNotLeftHandedLayout}
-        top: 3.5em !important;
+/* Matching on src makes these rules more specific than Tumblr's. */
+#tumblr_controls[src],
+#tumblr_controls.tumblr_sticky_iframe[src] {
+    position: fixed !important;
+    {block:IfLeftHandedLayout}
+    left: 0.45em !important;
+    right: auto !important;
+    {/block:IfLeftHandedLayout}
+    {block:IfNotLeftHandedLayout}
+    right: 0.45em !important;
+    {/block:IfNotLeftHandedLayout}
+    top: 3.5em !important;
+}
+
+@media screen and (max-width: 900px) {
+{/block:IfNotMobileStylesEverywhere}
+    #tumblr_controls[src],
+    #tumblr_controls.tumblr_sticky_iframe[src] {
+        position: absolute !important;
+        right: 0 !important;
+        top: 0 !important;
     }
+{block:IfNotMobileStylesEverywhere}
 }
 {/block:IfNotMobileStylesEverywhere}
 
