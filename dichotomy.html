@@ -341,16 +341,12 @@ article.link .article_body > h1:first-child a::after {
     font-weight: normal;
 }
 
-#home hgroup, #home h1, #home h2 {
+#home h1, #subtitle {
     display: inline;
     font-size: 100%;
 }
 
-#home h2 {
-    font-weight: normal;
-}
-
-#home h2::before {
+#subtitle::before {
     content: ", ";
 }
 
@@ -547,7 +543,7 @@ html {
 
 <body>
 <div id="home">
-<hgroup><h1><a href="/">{Title}</a></h1>{block:IfSubtitle}<h2>{text:Subtitle}</h2>{/block:IfSubtitle}</hgroup>
+<h1><a href="/">{Title}</a></h1>{block:IfSubtitle}<div id="subtitle">{text:Subtitle}</div>{/block:IfSubtitle}
 {block:IfCopyrightAuthor}©{CopyrightYears} {text:Copyright Author}{/block:IfCopyrightAuthor}
 </div>
 
