@@ -21,6 +21,8 @@ Thanks!
 Got a feature request or bug fix?
 Visit [Dichotomy on GitHub](https://github.com/kxz/dichotomy).
 Note that all code contributions must be released under CC0.
+The `master` branch holds the latest release,
+while `develop` contains changes scheduled for the next one.
 
 
 ## Installation
