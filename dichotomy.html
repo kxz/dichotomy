@@ -66,19 +66,25 @@
 @import url(//fonts.googleapis.com/css?family=Ubuntu+Mono:400,400italic,700,700italic&subset=latin,greek,cyrillic);
 
 html, body {
-    background: {color:Sidebar Background};
-    color: {color:Sidebar Foreground};
     margin: 0;
     padding: 0;
-    height: 100%;
+}
+
+html {
+    background-color: {color:Sidebar Background};
+    {block:ShowHeaderImage}
+    background-image: url({HeaderImage});
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    {/block:ShowHeaderImage}
+    color: {color:Sidebar Foreground};
     -webkit-text-size-adjust: 100%;
 }
 
 body {
     font: 14px/1.2 'Ubuntu Mono', monospace;
-    {block:IfLeftHandedLayout}
-    text-align: right;
-    {/block:IfLeftHandedLayout}
 }
 
 /* General stuff */
@@ -166,13 +172,8 @@ iframe, img {
     {block:IfLeftHandedLayout}
     float: right;
     {/block:IfLeftHandedLayout}
-    {block:IfNotLeftHandedLayout}
-    display: inline-block;
-    {/block:IfNotLeftHandedLayout}
     overflow: hidden;
-    background: {color:Content Background};
     color: {color:Content Foreground};
-    min-height: 100%;
 }
 
 #posts > header, article {
@@ -182,7 +183,6 @@ iframe, img {
 }
 
 #posts > header {
-    background: {color:Sidebar Background};
     color: {color:Sidebar Foreground};
 }
 
@@ -204,12 +204,13 @@ iframe, img {
 
 article {
     text-align: left;
-    border-bottom: 1em solid {color:Sidebar Background};
+    margin-bottom: 1em;
     overflow: auto;
+    background: {color:Content Background};
 }
 
 article:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
 }
 
 .article_body h1, #notes h1 {
@@ -406,6 +407,11 @@ nav li {
     margin: 0;
     padding: 0;
     display: inline;
+}
+
+#home, nav, #posts > header {
+    /* For extra visibility on contrasting backgrounds. */
+    text-shadow: {color:Sidebar Background} 0 0 0.5em;
 }
 
 #home a:link, #home a:visited, nav a:link, nav a:visited {
