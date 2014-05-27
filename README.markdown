@@ -45,14 +45,16 @@ of block quotes and the like; values range from 0.0 to 1.0.
 In order to use Dichotomy's mobile styles, you must first disable
 Tumblr's default ones by going to *Advanced options* and unchecking *Use
 optimized mobile layout*.
-If you'd like, you can force all devices to use the mobile styles by
-turning on the theme's *Mobile Styles Everywhere* option.
 
-Should you prefer having navigation on the left side and posts on the
-right, check the *Left Handed Layout* option, which flips the default
-layout horizontally.
+By default, on large displays, Dichotomy shows scrolling posts on the
+left side and fixed navigation on the right.
+You can change this using the *Desktop Layout* option.
+*Left-Handed* flips the default layout, while *Mobile* always uses the
+centered mobile styles with a larger font, even on larger screens.
+
 Note that Tumblr's teasers for users that are not logged in were not
-designed to be displayed on the left, and might look misaligned.
+designed to be displayed on the left, and might look misaligned if you
+use the left-handed layout.
 You can always uncheck the *Promote Tumblr* option under *Advanced
 options* if this bothers you.
 

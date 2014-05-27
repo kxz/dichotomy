@@ -14,10 +14,12 @@
 <meta name="color:Sidebar Background" content="#000000">
 
 
-<meta name="if:Archive Link" content="1">
+<meta name="select:Desktop Layout" content="default" title="Default">
+<meta name="select:Desktop Layout" content="lefthanded" title="Left-Handed">
+<meta name="select:Desktop Layout" content="mobile" title="Mobile">
 
-<meta name="if:Left Handed Layout" content="0">
-<meta name="if:Mobile Styles Everywhere" content="0">
+
+<meta name="if:Archive Link" content="1">
 
 <meta name="if:Automatic Syntax Highlighting" content="0">
 
@@ -81,10 +83,15 @@ html {
     {/block:ShowHeaderImage}
     color: {color:Sidebar Foreground};
     -webkit-text-size-adjust: 100%;
+    /* Keep the vertical scroll bar visible, even if it is disabled.
+       This keeps the size of the background image from jumping around. */
+    overflow-y: scroll;
 }
 
 body {
-    font: 14px/1.2 'Ubuntu Mono', monospace;
+    position: relative;
+    font: 18px/1.2 'Ubuntu Mono', monospace;
+    text-align: center;
 }
 
 /* General stuff */
@@ -166,12 +173,11 @@ iframe, img {
     border: 0;
 }
 
-/* Main post container (left side) */
+/* Main post container */
 
 #wrapper {
-    {block:IfLeftHandedLayout}
-    float: right;
-    {/block:IfLeftHandedLayout}
+    display: inline-block;
+    margin: 4.4em 0 2.2em;
     overflow: hidden;
     color: {color:Content Foreground};
 }
@@ -184,6 +190,7 @@ iframe, img {
 
 #posts > header {
     color: {color:Sidebar Foreground};
+    border-top: 1px dotted {color:Sidebar Foreground};
 }
 
 .inline_nav {
@@ -336,16 +343,15 @@ article.link .article_body > h1:first-child a::after {
     display: none;
 }
 
-/* Navigation (right side) */
+/* Navigation */
+
+#home, nav #main {
+    position: absolute;
+    left: 1em;
+    right: 1em;
+}
 
 #home {
-    position: fixed;
-    {block:IfLeftHandedLayout}
-    left: 1em;
-    {/block:IfLeftHandedLayout}
-    {block:IfNotLeftHandedLayout}
-    right: 1em;
-    {/block:IfNotLeftHandedLayout}
     top: 1em;
     margin: 0;
     font-size: 100%;
@@ -368,12 +374,7 @@ article.link .article_body > h1:first-child a::after {
 
 nav {
     text-transform: uppercase;
-    {block:IfLeftHandedLayout}
-    text-align: left;
-    {/block:IfLeftHandedLayout}
-    {block:IfNotLeftHandedLayout}
-    text-align: right;
-    {/block:IfNotLeftHandedLayout}
+    text-align: center;
     color: {color:Sidebar Incidentals};
     cursor: default;
 }
@@ -383,13 +384,6 @@ nav h1 {
 }
 
 nav ul {
-    position: fixed;
-    {block:IfLeftHandedLayout}
-    left: 1em;
-    {/block:IfLeftHandedLayout}
-    {block:IfNotLeftHandedLayout}
-    right: 1em;
-    {/block:IfNotLeftHandedLayout}
     margin: 0;
     padding: 0;
 }
@@ -399,6 +393,7 @@ nav #main {
 }
 
 nav #pages {
+    position: relative;
     bottom: 1em;
 }
 
@@ -428,87 +423,97 @@ nav li {
     content: "";
 }
 
-/** For narrower viewports **/
+/** Desktop and mobile styles **/
 
-{block:IfNotMobileStylesEverywhere}
-@media screen and (max-width: 900px) {
-{/block:IfNotMobileStylesEverywhere}
+@media screen and (max-width: 899px) {
     body {
-        font-size: 18px;
-        text-align: center;
         /* Leave space for Tumblr's mobile controls. */
         margin-top: 26px;
     }
-
-    #wrapper {
-        float: none;
-        display: inline-block;
-        margin: 4.4em 0 2.2em;
-    }
-
-    #posts > header {
-        border-top: 1px dotted {color:Sidebar Foreground};
-    }
-
-    nav {
-        text-align: center;
-    }
-
-    #home, nav #main {
-        position: absolute !important;
-        left: 1em;
-        right: 1em;
-        /* Leave space for Tumblr's mobile controls. */
-        margin-top: 26px;
-    }
-
-    nav #pages {
-        position: relative;
-        left: auto;
-        right: auto;
-    }
-{block:IfNotMobileStylesEverywhere}
 }
-{/block:IfNotMobileStylesEverywhere}
+
+@media screen and (min-width: 900px) {
+    body.default, body.lefthanded {
+        font-size: 14px;
+        margin-top: 0;
+    }
+
+    body.default {
+        text-align: left;
+    }
+
+    body.lefthanded {
+        text-align: right;
+    }
+
+    body.default #wrapper, body.lefthanded #wrapper {
+        margin: 0;
+    }
+
+    body.default #posts > header, body.lefthanded #posts > header {
+        border-top: none;
+    }
+
+    body.default nav {
+        text-align: right;
+    }
+
+    body.lefthanded nav {
+        text-align: left;
+    }
+
+    body.default #home, body.default nav ul,
+    body.lefthanded #home, body.lefthanded nav ul {
+        position: fixed !important;
+    }
+
+    body.default #home, body.default nav ul {
+        left: auto !important;
+        right: 1em !important;
+    }
+
+    body.lefthanded #home, body.lefthanded nav ul {
+        left: 1em !important;
+        right: auto !important;
+    }
+}
 
 /** Hacks for Tumblr's promos **/
 
-{block:IfNotMobileStylesEverywhere}
 /* Matching on src makes these rules more specific than Tumblr's. */
 #tumblr_controls[src],
 #tumblr_controls.tumblr_sticky_iframe[src] {
-    position: fixed !important;
-    {block:IfLeftHandedLayout}
-    left: 0.45em !important;
-    right: auto !important;
-    {/block:IfLeftHandedLayout}
-    {block:IfNotLeftHandedLayout}
-    right: 0.45em !important;
-    {/block:IfNotLeftHandedLayout}
-    top: 3.5em !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
 }
 
-@media screen and (max-width: 900px) {
-{/block:IfNotMobileStylesEverywhere}
-    #tumblr_controls[src],
-    #tumblr_controls.tumblr_sticky_iframe[src] {
-        position: absolute !important;
-        right: 0 !important;
-        top: 0 !important;
+@media screen and (min-width: 900px) {
+    body.default #tumblr_controls[src],
+    body.default #tumblr_controls.tumblr_sticky_iframe[src] {
+        position: fixed !important;
+        right: 0.45em !important;
+        top: 3.5em !important;
     }
-{block:IfNotMobileStylesEverywhere}
+
+    body.lefthanded #tumblr_controls[src],
+    body.lefthanded #tumblr_controls.tumblr_sticky_iframe[src] {
+        position: fixed !important;
+        left: 0.45em !important;
+        right: auto !important;
+        top: 3.5em !important;
+    }
 }
-{/block:IfNotMobileStylesEverywhere}
 
 #tumblr_teaser_follow {
     bottom: 3.2em !important;
-    {block:IfLeftHandedLayout}
-    left: 1em !important;
-    {/block:IfLeftHandedLayout}
-    {block:IfNotLeftHandedLayout}
     right: 1em !important;
-    {/block:IfNotLeftHandedLayout}
     margin: 0 -5px -5px;
+}
+
+body.lefthanded #tumblr_teaser_follow {
+    left: 1em !important;
+    right: auto !important;
 }
 
 /* Disable the teaser that slides the entire page over.  It covers up
@@ -545,7 +550,7 @@ html {
 {/block:IfGoogleAnalyticsID}
 </head>
 
-<body>
+<body class="{select:Desktop Layout}">
 <div id="home">
 <h1><a href="/">{Title}</a></h1>{block:IfSubtitle}<div id="subtitle">{text:Subtitle}</div>{/block:IfSubtitle}
 {block:IfCopyrightAuthor}©{CopyrightYears} {text:Copyright Author}{/block:IfCopyrightAuthor}
