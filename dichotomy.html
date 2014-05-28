@@ -176,7 +176,12 @@ iframe, img {
 
 #wrapper {
     display: inline-block;
+    {block:HideAvatar}
     margin: 4.4em 0 2.2em;
+    {/block:HideAvatar}
+    {block:ShowAvatar}
+    margin: 9.2em 0 2.2em;
+    {/block:ShowAvatar}
     overflow: hidden;
     color: {color:Content Foreground};
 }
@@ -356,7 +361,12 @@ article.link .article_body > h1:first-child a::after {
 }
 
 #home {
+    {block:HideAvatar}
     top: 1em;
+    {/block:HideAvatar}
+    {block:ShowAvatar}
+    top: 5.8em;
+    {/block:ShowAvatar}
     margin: 0;
     font-size: 100%;
     color: {color:Sidebar Incidentals};
@@ -376,6 +386,28 @@ article.link .article_body > h1:first-child a::after {
     font-weight: bold;
 }
 
+#avatar {
+    display: block;
+    background-image: url({PortraitURL-128});
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 50%;
+    top: -4.8em;
+    margin-left: -2.2em;
+    width: 4.4em;
+    height: 4.4em;
+}
+
+#avatar.circle {
+    border-radius: 2.2em;
+}
+
+#avatar.square {
+    border-radius: 0.2em;
+}
+
 nav {
     text-transform: uppercase;
     text-align: center;
@@ -393,7 +425,12 @@ nav ul {
 }
 
 nav #main {
+    {block:HideAvatar}
     top: 2.2em;
+    {/block:HideAvatar}
+    {block:ShowAvatar}
+    top: 7em;
+    {/block:ShowAvatar}
 }
 
 nav #pages {
@@ -512,12 +549,50 @@ html {
 
     body.default #home, body.default nav ul {
         left: auto !important;
+        {block:HideAvatar}
         right: 1em !important;
+        {/block:HideAvatar}
+        {block:ShowAvatar}
+        right: 4.2em !important;
+        {/block:ShowAvatar}
     }
 
     body.lefthanded #home, body.lefthanded nav ul {
+        {block:HideAvatar}
         left: 1em !important;
+        {/block:HideAvatar}
+        {block:ShowAvatar}
+        left: 4.2em !important;
+        {/block:ShowAvatar}
         right: auto !important;
+    }
+
+    body.default #home, body.lefthanded #home {
+        top: 1em;
+    }
+
+    body.default nav #main, body.lefthanded nav #main {
+        top: 2.2em;
+    }
+
+    body.default #avatar, body.lefthanded #avatar {
+        top: 0;
+        margin-left: 0;
+        width: 2.2em;
+        height: 2.2em;
+    }
+
+    body.default #avatar {
+        left: auto;
+        right: -3.2em;
+    }
+
+    body.lefthanded #avatar {
+        left: -3.2em;
+    }
+
+    body.default #avatar.circle, body.lefthanded #avatar.circle {
+        border-radius: 1.2em;
     }
 
     /* Forcibly move the Tumblr controls so they don't clash with the
@@ -561,7 +636,7 @@ html {
 
 <body class="{select:Desktop Layout}">
 <div id="home">
-<h1><a href="/">{Title}</a></h1>{block:IfSubtitle}<div id="subtitle">{text:Subtitle}</div>{/block:IfSubtitle}
+<h1><a href="/">{block:ShowAvatar}<span id="avatar" class="{AvatarShape}"></span>{/block:ShowAvatar}{Title}</a></h1>{block:IfSubtitle}<div id="subtitle">{text:Subtitle}</div>{/block:IfSubtitle}
 {block:IfCopyrightAuthor}©{CopyrightYears} {text:Copyright Author}{/block:IfCopyrightAuthor}
 </div>
 
