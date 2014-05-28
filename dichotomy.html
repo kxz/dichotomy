@@ -547,7 +547,7 @@ html {
         position: fixed !important;
     }
 
-    body.default #home, body.default nav ul {
+    body.default #home, body.default nav #main {
         left: auto !important;
         {block:HideAvatar}
         right: 1em !important;
@@ -557,13 +557,23 @@ html {
         {/block:ShowAvatar}
     }
 
-    body.lefthanded #home, body.lefthanded nav ul {
+    body.default nav #pages {
+        left: auto !important;
+        right: 1em !important;
+    }
+
+    body.lefthanded #home, body.lefthanded nav #main {
         {block:HideAvatar}
         left: 1em !important;
         {/block:HideAvatar}
         {block:ShowAvatar}
         left: 4.2em !important;
         {/block:ShowAvatar}
+        right: auto !important;
+    }
+
+    body.lefthanded nav #pages {
+        left: 1em !important;
         right: auto !important;
     }
 
