@@ -89,7 +89,6 @@ html {
 }
 
 body {
-    position: relative;
     font: 18px/1.2 'Ubuntu Mono', monospace;
     text-align: center;
 }
@@ -428,12 +427,51 @@ nav li {
     content: "";
 }
 
+/** Hacks for Tumblr page elements **/
+
+/* Matching on the "src" attribute makes the selectors in these rules
+   more specific than Tumblr's. */
+#tumblr_controls[src],
+#tumblr_controls.tumblr_sticky_iframe[src] {
+    /* Stay still, please. */
+    position: absolute !important;
+}
+
+#tumblr_teaser_follow {
+    bottom: 3.2em !important;
+    right: 1em !important;
+    margin: 0 -5px -5px;
+}
+
+body.lefthanded #tumblr_teaser_follow {
+    left: 1em !important;
+    right: auto !important;
+}
+
+/* Disable the teaser that slides the entire page over.  It covers up
+ * the navigation, and there's no way to detect when the teaser's being
+ * shown so that the navigation's positioning can be adjusted.  TL;DR:
+ * It's us or them, and of course I pick us. */
+
+html {
+    right: 0 !important;
+}
+
+#teaser_iframe_container {
+    display: none !important;
+}
+
 /** Desktop and mobile styles **/
 
 @media screen and (max-width: 899px) {
-    body {
-        /* Leave space for Tumblr's mobile controls. */
+    /* Leave space for Tumblr's mobile controls. */
+
+    #home, nav #main {
         margin-top: 26px;
+    }
+
+    #wrapper {
+        padding-top: 26px;
     }
 }
 
@@ -481,19 +519,9 @@ nav li {
         left: 1em !important;
         right: auto !important;
     }
-}
 
-/** Hacks for Tumblr's promos **/
-
-/* Matching on src makes these rules more specific than Tumblr's. */
-#tumblr_controls[src],
-#tumblr_controls.tumblr_sticky_iframe[src] {
-    position: absolute !important;
-    right: 0 !important;
-    top: 0 !important;
-}
-
-@media screen and (min-width: 900px) {
+    /* Forcibly move the Tumblr controls so they don't clash with the
+       navigation or post containers. */
     body.default #tumblr_controls[src],
     body.default #tumblr_controls.tumblr_sticky_iframe[src] {
         position: fixed !important;
@@ -508,30 +536,6 @@ nav li {
         right: auto !important;
         top: 3.5em !important;
     }
-}
-
-#tumblr_teaser_follow {
-    bottom: 3.2em !important;
-    right: 1em !important;
-    margin: 0 -5px -5px;
-}
-
-body.lefthanded #tumblr_teaser_follow {
-    left: 1em !important;
-    right: auto !important;
-}
-
-/* Disable the teaser that slides the entire page over.  It covers up
- * the navigation, and there's no way to detect when the teaser's being
- * shown so that the navigation's positioning can be adjusted.  TL;DR:
- * It's us or them, and of course I pick us. */
-
-html {
-    right: 0 !important;
-}
-
-#teaser_iframe_container {
-    display: none !important;
 }
 </style>
 
