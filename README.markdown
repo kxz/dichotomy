@@ -40,6 +40,11 @@ The theme's various colors can be changed using the standard selectors.
 Use the *Midground Opacity* text field to adjust the background opacity
 of block quotes and the like; values range from 0.0 to 1.0.
 
+### Background images
+
+Dichotomy can use your Tumblr header image as a custom page background.
+Just enable the *Header Image as Background* option.
+
 ### Mobile and left-handed layouts
 
 In order to use Dichotomy's mobile styles, you must first disable
