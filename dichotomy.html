@@ -650,7 +650,7 @@ html {
 
 <body class="{select:Desktop Layout}">
 <div id="home">
-<h1><a href="/">{block:ShowAvatar}<span id="avatar" class="{AvatarShape}"></span>{/block:ShowAvatar}{Title}</a></h1>{block:IfSubtitle}<div id="subtitle">{text:Subtitle}</div>{/block:IfSubtitle}
+<h1><a href="/" accesskey="h" title="Latest posts [H]">{block:ShowAvatar}<span id="avatar" class="{AvatarShape}"></span>{/block:ShowAvatar}{Title}</a></h1>{block:IfSubtitle}<div id="subtitle">{text:Subtitle}</div>{/block:IfSubtitle}
 {block:IfCopyrightAuthor}©{CopyrightYears} {text:Copyright Author}{/block:IfCopyrightAuthor}
 </div>
 
@@ -786,12 +786,12 @@ html {
 <nav>
 <h1>Pagination</h1>
 <ul id="pages">
-<li class="prev"><a{block:PreviousPage} href="{PreviousPage}"{/block:PreviousPage}>Prev</a></li>
+<li class="prev"><a{block:PreviousPage} href="{PreviousPage}" accesskey="p" title="Previous page [P]"{/block:PreviousPage}>Prev</a></li>
 {block:JumpPagination length="7"}
 {block:CurrentPage}<li><a>{PageNumber}</a></li>{/block:CurrentPage}
 {block:JumpPage}<li><a href="{URL}">{PageNumber}</a></li>{/block:JumpPage}
 {/block:JumpPagination}
-<li class="next"><a{block:NextPage} href="{NextPage}"{/block:NextPage}>Next</a></li>
+<li class="next"><a{block:NextPage} href="{NextPage}" accesskey="n" title="Next page [N]"{/block:NextPage}>Next</a></li>
 </ul>
 </nav>
 {/block:Pagination}
@@ -799,8 +799,8 @@ html {
 <nav>
 <h1>Pagination</h1>
 <ul id="pages">
-<li class="prev"><a{block:NextPost} href="{NextPost}"{/block:NextPost}>Newer</a></li>
-<li class="next"><a{block:PreviousPost} href="{PreviousPost}"{/block:PreviousPost}>Older</a></li>
+<li class="prev"><a{block:NextPost} href="{NextPost}" accesskey="p" title="Newer post [P]"{/block:NextPost}>Newer</a></li>
+<li class="next"><a{block:PreviousPost} href="{PreviousPost}" accesskey="n" title="Older post [N]"{/block:PreviousPost}>Older</a></li>
 </ul>
 </nav>
 {/block:PermalinkPagination}
@@ -813,15 +813,15 @@ html {
 {/block:IfBacklinkTitle}{/block:IfBacklinkURL}
 
 {block:IfArchiveLink}
-<li><a href="/archive">Archive</a></li>
+<li><a href="/archive" accesskey="a" title="List of all posts [A]">Archive</a></li>
 {/block:IfArchiveLink}
 
 {block:SubmissionsEnabled}
-<li><a href="/submit">{SubmitLabel}</a></li>
+<li><a href="/submit" accesskey="s" title="Submit a post [S]">{SubmitLabel}</a></li>
 {/block:SubmissionsEnabled}
 
 {block:AskEnabled}
-<li><a href="/ask">{AskLabel}</a></li>
+<li><a href="/ask" accesskey="q" title="Ask a question [Q]">{AskLabel}</a></li>
 {/block:AskEnabled}
 
 {block:HasPages}
@@ -829,7 +829,7 @@ html {
 {/block:HasPages}
 
 <li><a href="http://blog.room208.org/dichotomy">Theme</a></li>
-<li><a href="{RSS}">RSS</a></li>
+<li><a href="{RSS}" accesskey="r" title="Syndication feed [R]">RSS</a></li>
 </ul>
 </nav>
 </body>
