@@ -12,7 +12,7 @@ customizable appearance options.
 ## Installation
 
 Log in to Tumblr, then visit [Dichotomy's Theme Garden
-page](http://www.tumblr.com/theme/38335) and click on the *Install*
+page](https://www.tumblr.com/theme/38335) and click on the *Install*
 button.
 For information on how to bend the theme options to your will, take a
 peek at [the documentation](https://github.com/kxz/dichotomy/wiki).
