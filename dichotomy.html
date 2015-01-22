@@ -11,7 +11,6 @@
 
 <meta name="color:Sidebar Foreground" content="#ffffff">
 <meta name="color:Sidebar Incidentals" content="#a8a8a8">
-<meta name="color:Sidebar Background" content="#000000">
 
 
 <meta name="select:Desktop Layout" content="default" title="Default">
@@ -77,7 +76,7 @@ html, body {
 }
 
 html {
-    background-color: {color:Sidebar Background};
+    background-color: {BackgroundColor};
     {block:IfHeaderImageAsBackground}
     background-image: url({HeaderImage});
     background-position: center center;
@@ -236,7 +235,7 @@ article:last-child {
 .article_body > h1:first-child {
     margin: 0 -1em 1em;
     padding: 1em;
-    border-bottom: 1px solid {color:Sidebar Background};
+    border-bottom: 1px solid {BackgroundColor};
 }
 
 .article_body > h1:first-child a {
@@ -451,7 +450,7 @@ nav li {
 
 #home, nav, #posts > header {
     /* For extra visibility on contrasting backgrounds. */
-    text-shadow: {color:Sidebar Background} 0 0 0.5em;
+    text-shadow: #000 0 0 0.5em;
 }
 
 #home a:link, #home a:visited, nav a:link, nav a:visited {
