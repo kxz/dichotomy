@@ -32,6 +32,9 @@ Thanks!
 
 Got a feature request or bug fix?
 Visit [Dichotomy on GitHub](https://github.com/kxz/dichotomy).
-The `master` branch holds the latest release,
-while `develop` contains changes scheduled for the next one.
+The `master` branch holds the latest release submitted to the Tumblr
+Theme Garden, while `release` branches contain changes scheduled for
+upcoming versions.
+Dichotomy adheres to [semantic versioning](http://semver.org/), treating
+theme options as the public API.
 Note that all code contributions must be released under CC0.
