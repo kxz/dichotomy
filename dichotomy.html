@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 
-{block:IfDummy}  <!-- Keeps options from appearing in the actual source. -->
+{block:Hidden}
 <meta name="color:Content Foreground" content="#000000">
 <meta name="color:Content Incidentals" content="#a8a8a8">
 <meta name="color:Content Midground" content="#808080">
@@ -36,7 +36,7 @@
 <meta name="text:Midground Opacity" content="0.2">
 
 <meta name="text:Google Analytics ID" content="">
-{/block:IfDummy}
+{/block:Hidden}
 
 <title>
 {block:PostSummary}{PostSummary} &lt; {/block:PostSummary}
@@ -48,6 +48,7 @@
 <meta name="viewport" content="width=536">
 
 <link rel="shortcut icon" href="{Favicon}">
+<link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}">
 
 <!--[if lt IE 9]>
