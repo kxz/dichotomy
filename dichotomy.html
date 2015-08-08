@@ -289,7 +289,7 @@ article.link .article_body > h1:first-child a::after {
     counter-increment: list;
 }
 
-.image, .html_photoset {
+.image, .html_photoset, .audio_player {
     background: rgba({RGBcolor:Content Midground},{text:Midground Opacity});
     margin: 1em 0;
 }
@@ -698,7 +698,7 @@ html {
 {/block:Text}
 
 {block:Photo}
-<div class="image">{LinkOpenTag}<img src="{PhotoURL-500}" alt="">{LinkCloseTag}</div>
+<div class="image">{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{LinkCloseTag}</div>
 {block:Caption}{Caption}{/block:Caption}
 {/block:Photo}
 
