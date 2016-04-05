@@ -1,5 +1,8 @@
 # Dichotomy
 
+**This theme is no longer maintained.**
+Feel free to fork to your heart's content, though.
+
 ![](screenshots/default.png)
 
 **Dichotomy** is a minimalistic theme built around high-contrast boxes
